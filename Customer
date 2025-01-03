@@ -1,0 +1,84 @@
+E-commerce Database Documentation
+This document outlines the structure and functionality of the e-commerce database schema.
+
+1. Purpose
+
+This database is designed to store and manage data related to an online store, including customer information, product details, orders, and shipping information.
+
+2. Entities and Attributes
+
+Customers:
+
+customerID (INT, Primary Key, Auto-Increment): Unique identifier for each customer.
+firstName (VARCHAR): First name of the customer.
+lastName (VARCHAR): Last name of the customer.
+email (VARCHAR, Unique): Email address of the customer.
+phone (VARCHAR): Phone number of the customer.
+address (VARCHAR): Shipping address of the customer.
+city (VARCHAR): City of the customer.
+state (VARCHAR): State of the customer.
+zipCode (VARCHAR): Zip code of the customer.
+Products:
+
+productID (INT, Primary Key, Auto-Increment): Unique identifier for each product.
+productName (VARCHAR): Name of the product.
+description (TEXT): Description of the product.
+category (VARCHAR): Category of the product (e.g., Electronics, Clothing).
+price (DECIMAL): Price of the product.
+quantityInStock (INT): Quantity of the product in stock.
+image (VARCHAR): URL or path to the product image.
+Orders:
+
+orderID (INT, Primary Key, Auto-Increment): Unique identifier for each order.
+orderDate (DATE): Date when the order was placed.
+customerID (INT, Foreign Key referencing Customers): ID of the customer who placed the order.
+OrderItems:
+
+orderItemID (INT, Primary Key, Auto-Increment): Unique identifier for each order item.
+orderID (INT, Foreign Key referencing Orders): ID of the order to which the item belongs.
+productID (INT, Foreign Key referencing Products): ID of the product in the order.
+quantity (INT): Quantity of the product ordered.
+unitPrice (DECIMAL): Price of the product at the time of the order.
+Shipping:
+
+shippingID (INT, Primary Key, Auto-Increment): Unique identifier for each shipping record.
+orderID (INT, Foreign Key referencing Orders, Unique): ID of the order associated with the shipping.
+shippingAddress (VARCHAR): Shipping address for the order.
+shippingCity (VARCHAR): Shipping city for the order.
+shippingState (VARCHAR): Shipping state for the order.
+shippingZip (VARCHAR): Shipping zip code for the order.
+shippingMethod (VARCHAR): Shipping method used (e.g., Standard, Express).
+shippingCost (DECIMAL): Cost of shipping for the order.
+3. Database Schema
+
+[Include a visual representation of the database schema using a tool like ERD Plus or draw.io. This should clearly show the tables, their attributes, and the relationships between them.]
+
+4. SQL Statements
+
+Table Creation:
+
+SQL
+
+-- (Table creation statements as provided in the previous response)
+Sample Data:
+
+SQL
+
+-- (Sample data insertion statements as provided in the previous response)
+Sample Queries:
+
+SQL
+
+-- (Sample query examples as provided in the previous response)
+5. Considerations
+
+Normalization: The database is designed with a reasonable level of normalization to minimize data redundancy.
+Data Types: Appropriate data types are used for each attribute to ensure data integrity and efficiency.
+Constraints: Primary keys, foreign keys, and unique constraints are used to enforce data integrity and relationships between tables.
+Security: Implementing security measures to protect sensitive data (e.g., customer information, payment details) is crucial.
+6. Future Enhancements
+
+Inventory Management: Track stock levels, restock alerts, etc.
+Payment Processing: Integrate with payment gateways (e.g., Stripe, PayPal).
+User Roles: Implement different user roles (e.g., administrator, customer).
+Reviews and Ratings: Allow customers to leave reviews and ratings for products.
